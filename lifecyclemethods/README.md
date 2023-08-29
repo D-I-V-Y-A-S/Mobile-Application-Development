@@ -29,13 +29,102 @@ Step 7: Save and run the application.
 ```
 /*
 Program to print the text “Hello World”.
-Developed by:
-Registeration Number :
+Developed by:DIVYA S
+Registeration Number :212221040043
 */
 ```
+mainactivity.xml
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout        xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".MainActivity">
+
+<TextView
+    android:layout_width="238dp"
+    android:layout_height="105dp"
+    android:text="Hello World!"
+    android:textSize="100px"
+    android:textStyle="italic"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.591"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.499" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+Activitymain.java
+package com.example.helloworld;
+  import androidx.appcompat.app.AppCompatActivity;
+  import android.os.Bundle;
+  import android.util.Log;
+  import android.widget.Toast;
+
+ public class MainActivity extends AppCompatActivity {
+
+  private static final String TAG = "HelloWorldActivity";
+
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+    Log.d(TAG, "onCreate: ");
+    Toast.makeText(this, "onCreate", Toast.LENGTH_SHORT).show();
+}
+
+@Override
+protected void onStart() {
+    super.onStart();
+    Log.d(TAG, "onStart: ");
+    Toast.makeText(this, "onStart", Toast.LENGTH_SHORT).show();
+}
+
+@Override
+protected void onResume() {
+    super.onResume();
+    Log.d(TAG, "onResume: ");
+    Toast.makeText(this, "onResume", Toast.LENGTH_SHORT).show();
+}
+
+@Override
+protected void onPause() {
+    super.onPause();
+    Log.d(TAG, "onPause: ");
+    Toast.makeText(this, "onPause", Toast.LENGTH_SHORT).show();
+}
+
+@Override
+protected void onStop() {
+    super.onStop();
+    Log.d(TAG, "onStop: ");
+    Toast.makeText(this, "onStop", Toast.LENGTH_SHORT).show();
+}
+
+@Override
+protected void onDestroy() {
+    super.onDestroy();
+    Log.d(TAG, "onDestroy: ");
+    Toast.makeText(this, "onDestroy", Toast.LENGTH_SHORT).show();
+}
+
+@Override
+protected void onRestart() {
+    super.onRestart();
+    Log.d(TAG, "onRestart: ");
+    Toast.makeText(this, "onRestart", Toast.LENGTH_SHORT).show();
+}
+}
 
 ## OUTPUT
 
+![image](https://github.com/suryacse05/Mobile-Application-Development/assets/141506417/606b3426-c48f-45b2-a006-7c888ca6977d)
+
+![image](https://github.com/suryacse05/Mobile-Application-Development/assets/141506417/5a52bd83-2062-45af-b9a4-4f98449d236b)
+
+![image](https://github.com/suryacse05/Mobile-Application-Development/assets/141506417/16750348-700e-411b-8e22-a047385278b1)
 
 
 
