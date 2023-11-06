@@ -37,130 +37,101 @@ Registeration Number :212221040043
 ## Activity_main.xml
 ```
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout 
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="148dp"
+        android:text="Get contact"
         android:onClick="btnGetContactPressed"
-        android:text="@string/get_contacts"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.644" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
 ## MainActivity.java
 ```
-package com.example.contactsgetter;
+package com.example.phonecontact;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.ContentResolver;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.View;
-import android.Manifest;
 
 public class MainActivity extends AppCompatActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
-//        Button show = (Button) findViewById(R.id.button2);
-//        show.setOnClickListener(view->
-//        {
-//            getPhoneContacts();
-//        });
-
     }
-    private void getPhoneContacts(){
-        if(ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this,new String[] {Manifest.permission.READ_CONTACTS},0);
-
-        }
-        ContentResolver contentResolver = getContentResolver();
-        Uri uri = ContactsContract.CommonDataKinds.Phone.CONTENT_URI;
-        Cursor cursor = contentResolver.query(uri,null,null,null,null);
-        Log.i("CONTACT_PROVIDER_DEMO","TOTAL # COUNTS :::"+cursor.getCount());
-        if(cursor.getCount() > 0)
-        {
-            while(cursor.moveToNext()){
-                @SuppressLint("Range") String contactName = cursor.getString
-                              (cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
-                @SuppressLint("Range") String contactNumber = cursor.getString
-                              (cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
-                Log.i("Content_provider_demo","Name: # "+contactName+"Number: # "+contactNumber);
-            }
-
-        }
-    }
-
-    public void btnGetContactPressed(View view) {
+    public void btnGetContactPressed(View v)
+    {
         getPhoneContacts();
+    }
+    private void getPhoneContacts()
+    {
+        if(ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS)!=
+        PackageManager.PERMISSION_GRANTED)
+        {
+            ActivityCompat.requestPermissions(this,new String[] {Manifest.permission.READ_CONTACTS},0);
+        }
+
+        ContentResolver cr = getContentResolver();
+        Uri uri = ContactsContract.CommonDataKinds.Phone.CONTENT_URI;
+        @SuppressLint({"NewApi", "LocalSuppress"}) Cursor cursor = cr.query(uri,null,null,null);
+        Log.i("CONTACT_PROVIDER_DEMO0", "TOTAL # OF CONTACTS ::"+Integer.toString(cursor.getCount()));
+        if (cursor.getCount() > 0)
+        {
+            while(cursor.moveToNext())
+            {
+                @SuppressLint("Range") String contactname = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
+                @SuppressLint("Range") String contactnumber = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
+
+                Log.i("CONTACT_PROVIDER_DEMO","CONTACT_NAME ::"+contactname+"PH # ::"+contactnumber);
+            }
+        }
     }
 }
 ```
-## AndroidManifest.xml
-```
-<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
-    <uses-permission android:name="android.permission.READ_CONTACTS"/>
-    <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
-    <application
-        android:allowBackup="true"
-        android:dataExtractionRules="@xml/data_extraction_rules"
-        android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:supportsRtl="true"
-        android:theme="@style/Theme.Contentprovider"
-        tools:targetApi="31">
-        <activity
-            android:name=".MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-    </application>
-
-</manifest>
-```
 ## OUTPUT
 
-<img src= "https://user-images.githubusercontent.com/119641638/241371722-11a53807-3225-4d7b-a5ca-6c611e750438.png" alt="hee" width="70%" height="auto">
+![image](https://github.com/D-I-V-Y-A-S/Mobile-Application-Development/assets/141506417/9f3ae31a-c7dd-4b6f-adab-bfc6a7e5c98a)![image](https://github.com/D-I-V-Y-A-S/Mobile-Application-Development/assets/141506417/b6852eb2-0666-46be-bfe6-1bb9273ad1df)
 
-<img src= "https://user-images.githubusercontent.com/119641638/241371745-ba23156d-0d19-4be6-a635-7d5528ccac19.png" alt="hee" width="70%" height="auto">
-
-<img src= "https://user-images.githubusercontent.com/119641638/241372408-800ce4d6-2d7d-410a-9da9-25058503215d.png" alt="hee" width="70%" height="auto">
-
-<img src= "https://user-images.githubusercontent.com/127511817/265640677-4af2b7ca-eec5-4d40-beb0-3f3df4653bed.png" alt="hi" width="50%" height="auto">
-
-<img src= "https://user-images.githubusercontent.com/127511817/265640739-891d2c00-0921-405e-ab43-4dc7372f1c12.png" alt="hee" width="70%" height="auto">
-
-<img src= "https://user-images.githubusercontent.com/127511817/265640795-e01cbe16-fe2a-4967-a15b-e4ca54192278.png" alt="he" width="70%" height="auto">
-
+![image](https://github.com/D-I-V-Y-A-S/Mobile-Application-Development/assets/141506417/41d77e6a-a05f-4e62-ae0a-d96fb9ab257f)
 
 ## RESULT
 
