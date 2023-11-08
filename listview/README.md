@@ -37,45 +37,70 @@ Registeration Number :212221040043
 ### activity_main
 ```
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    
     xmlns:tools="http://schemas.android.com/tools"
+    
     android:layout_width="match_parent"
+    
     android:layout_height="match_parent"
+    
     android:orientation="vertical"
+
     tools:context=".MainActivity">
     <ListView
         android:id="@+id/simpleListView"
+        
         android:layout_width="fill_parent"
+        
         android:layout_height="wrap_content"
+        
         android:divider="@color/white"
+        
         android:dividerHeight="1dp"
+        
         android:footerDividersEnabled="false" />
 </LinearLayout>
 ```
 ### MainActivity.java
-```package com.example.listview;
+```
+package com.example.listview;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
+
 import android.widget.ListView;
+
 public class MainActivity extends AppCompatActivity {
+
     ListView simpleList;
+    
     String countryList[] = {"Eiffel Tower", "Mahabalipuram", "Hawai",};
+    
     int flags[] = {R.drawable.eiffel, R.drawable.maha, R.drawable.hawai};
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+    
         super.onCreate(savedInstanceState);
+        
         setContentView(R.layout.activity_main);
+        
         simpleList = (ListView) findViewById(R.id.simpleListView);
-        CustomAdapter customAdapter = new CustomAdapter(getApplicationContext(),
-                countryList, flags);
+        
+        CustomAdapter customAdapter = new CustomAdapter(getApplicationContext(),countryList, flags);
+                
         simpleList.setAdapter(customAdapter);
     }
 }
 ```
 ### activity_listview.xml
-```<?xml version="1.0" encoding="utf-8"?>
+```
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -142,6 +167,5 @@ public class CustomAdapter extends BaseAdapter {
 ![image](https://github.com/Pavishmi/Mobile-Application-Development/assets/136091280/069706fd-93a6-4799-8be2-4dac618aa8ea)
 
 ## RESULT
-```
+
 Thus a Simple Android Application to create and develop the application to display the place name with image using list view in android studio is developed and executed successfully.
-```
