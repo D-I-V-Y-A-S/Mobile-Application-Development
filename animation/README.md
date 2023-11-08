@@ -1,14 +1,8 @@
 # Ex.No: 11 Develop a application to add animations to ImageView,Move,blink,fade,clockwise,zoom,slide operations are perform in android studio.
-
-
 ## AIM:
-
 To develop a application to add animation to imageview,move,blink,fade,clockwise,zoom,slide operation using Android Studio.
-
 ## EQUIPMENTS REQUIRED:
-
 Android Studio(Latest Version)
-
 ## ALGORITHM:
 ```
 Step 1: Open Android Studio and then click on File -> New -> New project.
@@ -25,8 +19,6 @@ Step 6: Display message give in MainActivity file.
 
 Step 7: Save and run the application.
 ```
-
-
 ## PROGRAM:
 ```
 /*
@@ -38,13 +30,18 @@ Registeration Number :212221040043
 ## activity_main.xml :
 ```
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
 
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    
+    xmlns:tools="http://schemas.android.com/tools"
+    
+    android:layout_width="match_parent"
+    
+    android:layout_height="match_parent"
+    
+    tools:context=".MainActivity">
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="234dp"
@@ -68,7 +65,6 @@ Registeration Number :212221040043
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.538" />
-
     <Button
         android:id="@+id/BTNrotate"
         android:layout_width="wrap_content"
@@ -79,7 +75,6 @@ Registeration Number :212221040043
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.538" />
-
     <Button
         android:id="@+id/BTNfade"
         android:layout_width="wrap_content"
@@ -91,7 +86,6 @@ Registeration Number :212221040043
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.538" />
-
     <Button
         android:id="@+id/BTNmove"
         android:layout_width="wrap_content"
@@ -103,7 +97,6 @@ Registeration Number :212221040043
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.642" />
-
     <Button
         android:id="@+id/BTNslide"
         android:layout_width="wrap_content"
@@ -115,7 +108,6 @@ Registeration Number :212221040043
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.642" />
-
     <Button
         android:id="@+id/BTNzoom"
         android:layout_width="wrap_content"
@@ -127,7 +119,6 @@ Registeration Number :212221040043
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.642" />
-
     <Button
         android:id="@+id/BTNstop"
         android:layout_width="380dp"
@@ -242,11 +233,17 @@ Registeration Number :212221040043
 package com.example.animation;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
+
 import android.view.View;
+
 import android.view.animation.Animation;
+
 import android.view.animation.AnimationUtils;
+
 import android.widget.Button;
+
 import android.widget.ImageView;
 public class MainActivity extends AppCompatActivity {
     ImageView imageView;
@@ -327,13 +324,10 @@ public class MainActivity extends AppCompatActivity {
 ```
 ## OUTPUT
 ![image](https://github.com/D-I-V-Y-A-S/Mobile-Application-Development/assets/141506417/1937f162-3ebf-44ae-853d-3f9df3dbd8d9)
-
-![image](https://github.com/D-I-V-Y-A-S/Mobile-Application-Development/assets/141506417/489a59c3-5ff2-4f6d-aa63-3cbbf8506d57)
-
 ![image](https://github.com/D-I-V-Y-A-S/Mobile-Application-Development/assets/141506417/5fdfff6c-d555-4ab8-a710-d55d200b92cd)
 
 
 ## RESULT
-```
+
 Thus, to develop a application to add animation to imageview,move,blink,fade,clockwise,zoom,slide operation using Android Studio has been executed successfully.
-```
+
