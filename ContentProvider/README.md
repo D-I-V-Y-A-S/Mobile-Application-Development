@@ -37,33 +37,55 @@ Registeration Number :212221040043
 ## Activity_main.xml
 ```
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
 
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+
+    android:layout_height="match_parent"
+
+    tools:context=".MainActivity">
+    
     <TextView
         android:id="@+id/textView"
+        
         android:layout_width="wrap_content"
+        
         android:layout_height="wrap_content"
+        
         android:text="Hello World!"
+        
         app:layout_constraintBottom_toBottomOf="parent"
+        
         app:layout_constraintLeft_toLeftOf="parent"
+        
         app:layout_constraintRight_toRightOf="parent"
+        
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button"
+        
         android:layout_width="wrap_content"
+        
         android:layout_height="wrap_content"
+        
         android:layout_marginEnd="148dp"
+        
         android:text="Get contact"
+        
         android:onClick="btnGetContactPressed"
+        
         app:layout_constraintBottom_toBottomOf="parent"
+        
         app:layout_constraintEnd_toEndOf="parent"
+        
         app:layout_constraintTop_toTopOf="parent"
+        
         app:layout_constraintVertical_bias="0.644" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -73,20 +95,33 @@ Registeration Number :212221040043
 package com.example.phonecontact;
 
 import androidx.annotation.RequiresApi;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import androidx.core.app.ActivityCompat;
+
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+
 import android.annotation.SuppressLint;
+
 import android.content.ContentResolver;
+
 import android.content.pm.PackageManager;
+
 import android.database.Cursor;
+
 import android.net.Uri;
+
 import android.os.Build;
+
 import android.os.Bundle;
+
 import android.provider.ContactsContract;
+
 import android.util.Log;
+
 import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
