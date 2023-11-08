@@ -230,6 +230,4 @@ public class MainActivity extends AppCompatActivity {
 ![image](https://github.com/Pavishmi/Mobile-Application-Development/assets/136091280/0e0e7520-9488-48b7-a536-86122b4c05f5)
 
 ### RESULT
-```
 Thus a Simple Android Application develop a program to create simple calculator in Android Studio is developed and executed successfully.
-```
