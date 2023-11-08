@@ -44,61 +44,84 @@ Registeration Number : 212221040043
 package com.example.gallery_view;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
+
 import android.widget.Gallery;
+
 import android.view.View;
+
 import android.widget.AdapterView;
+
 import android.widget.Gallery;
+
 import android.widget.ImageView;
+
 public class MainActivity extends AppCompatActivity {
     Gallery simpleGallery;
+    
     CustomizedGalleryAdapter customGalleryAdapter;
+    
     ImageView selectedImageView;
+    
     int[] images = {R.drawable.bird, R.drawable.bt21,R.drawable.bts,R.drawable.grin};
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+    
         super.onCreate(savedInstanceState);
+        
         setContentView(R.layout.activity_main);
+        
         simpleGallery = (Gallery) findViewById(R.id.languagesGallery);
+        
         selectedImageView = (ImageView) findViewById(R.id.imageView);
+        
         customGalleryAdapter = new CustomizedGalleryAdapter(getApplicationContext(), images);
+        
         simpleGallery.setAdapter(customGalleryAdapter);
+        
         simpleGallery.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            
                 selectedImageView.setImageResource(images[position]);
             }
         });
     }
 }
 ```
-
 ### CustomizedGalleryAdapter.java:
 ```
 package com.example.gallery_view;
 
 import android.content.Context;
+
 import android.view.View;
+
 import android.view.ViewGroup;
+
 import android.widget.BaseAdapter;
+
 import android.widget.Gallery;
+
 import android.widget.ImageView;
+
 public class CustomizedGalleryAdapter extends BaseAdapter {
     private Context context;
+    
     private int[] images;
+    
     public CustomizedGalleryAdapter(Context c, int[] images) {
         context = c;
-        this.images = images;
-    }
+        
+        this.images = images; }
     public int getCount() {
-        return images.length;
-    }
+        return images.length; }
     public Object getItem(int position) {
-        return position;
-    }
+        return position;  }
     public long getItemId(int position) {
-        return position;
-    }
+        return position;  }
     public View getView(int position, View convertView, ViewGroup parent) {
         ImageView imageView = new ImageView(context);
         imageView.setImageResource(images[position]);
@@ -154,7 +177,5 @@ public class CustomizedGalleryAdapter extends BaseAdapter {
 
 
 ### RESULT
-```
-Thus a Simple Android Application to create a gallery control using android studio to display images or photos is developed and executed successfully.
-```
 
+Thus a Simple Android Application to create a gallery control using android studio to display images or photos is developed and executed successfully.
